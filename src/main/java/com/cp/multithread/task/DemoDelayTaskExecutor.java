@@ -136,7 +136,7 @@ public class DemoDelayTaskExecutor {
 				while (true) {
 					DemoDelayTask taskItem = null;
 					try {
-						taskItem = delayedQueue.take();
+						taskItem = delayedQueue.poll(5000, TimeUnit.MILLISECONDS);
 						if (taskItem != null) {
 							doWork(taskItem);
 						} else if (!running.get()) {
